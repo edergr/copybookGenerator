@@ -1,0 +1,54 @@
+{
+  "name": "EDERWCPY",
+  "description": "MOVIMENTACOES",
+  "size": 26,
+  "date": "06/04/2023",
+  "header": {
+    "name": "HEADER",
+    "fields": [
+      {
+        "filler": false,
+        "name": "OBJETIVO-ARQUIVO",
+        "size": 25,
+        "type": "X"
+      },
+      {
+        "filler": true,
+        "size": 1
+      }
+    ]
+  },
+  "body": [
+    {
+      "redefines": "header.name",
+      "name": "MOVIMENTACOES",
+      "fields": [
+        {
+          "filler": false,
+          "name": "DATA-MOVIMENTACAO",
+          "size": 10,
+          "type": "X"
+        },
+        {
+          "filler": false,
+          "name": "TIPO-MOVIMENTACAO",
+          "size": 1,
+          "type": "X"
+        },
+        {
+          "filler": false,
+          "name": "VALOR-MOVIMENTACAO",
+          "size": 13,
+          "type": "9",
+          "decimal": 2
+        }
+      ]
+    }
+  ],
+  "trailer": {
+    "exists": false,
+    "redefines": null,
+    "name": null,
+    "fields": []
+  }
+}
