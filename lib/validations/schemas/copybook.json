@@ -3,9 +3,6 @@
   "description": "Copybook validation schema",
   "required": [
     "name",
-    "description",
-    "author",
-    "size",
     "header",
     "body"
   ],
@@ -21,7 +18,8 @@
       "maxLength": 45
     },
     "author": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 45
     },
     "size": {
       "type": "number"
@@ -35,11 +33,17 @@
       "properties": {
         "name": {
           "type": "string",
-          "maxLength": 20
+          "maxLength": 20,
+          "default": "HEADER"
         },
         "fields": {
           "type": "array",
           "items": {
+            "required": [
+              "name",
+              "size",
+              "type"
+            ],
             "type": "object",
             "properties": {
               "filler": {
@@ -48,14 +52,17 @@
               },
               "name": {
                 "type": "string",
+                "minLength": 1,
                 "maxLength": 21
               },
               "description": {
                 "type": "string",
+                "minLength": 1,
                 "maxLength": 34
               },
               "size": {
-                "type": "number"
+                "type": "number",
+                "minimun": 1
               },
               "type": {
                 "type": "string",
@@ -82,12 +89,19 @@
         },
         "name": {
           "type": "string",
+          "minLength": 1,
           "maxLength": 20
         },
         "fields": {
           "type": "array",
           "items": {
             "type": "object",
+            "required": [
+              "name",
+              "size",
+              "type",
+              "inOut"
+            ],
             "properties": {
               "filler": {
                 "type": "boolean",
@@ -95,14 +109,17 @@
               },
               "name": {
                 "type": "string",
+                "minLength": 1,
                 "maxLength": 21
               },
               "description": {
                 "type": "string",
+                "minLength": 1,
                 "maxLength": 34
               },
               "size": {
-                "type": "number"
+                "type": "number",
+                "minimun": 1
               },
               "type": {
                 "type": "string",
@@ -110,6 +127,10 @@
                   "X",
                   "9"
                 ]
+              },
+              "decimal": {
+                "type": "number",
+                "minimun": 1
               },
               "inOut": {
                 "type": "string",
@@ -144,10 +165,21 @@
               },
               "name": {
                 "type": "string",
-                "maxLength": 20
+                "minLength": 1,
+                "maxLength": 21
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 34
               },
               "size": {
-                "type": "number"
+                "type": "number",
+                "minimun": 1
+              },
+              "decimal": {
+                "type": "number",
+                "minimun": 1
               },
               "type": {
                 "type": "string",
