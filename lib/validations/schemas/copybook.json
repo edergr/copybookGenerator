@@ -1,0 +1,189 @@
+{
+  "id": "copybook",
+  "description": "Copybook validation schema",
+  "required": [
+    "name",
+    "header",
+    "body"
+  ],
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 8
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 45
+    },
+    "author": {
+      "type": "string",
+      "maxLength": 45
+    },
+    "size": {
+      "type": "number"
+    },
+    "date": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 10
+    },
+    "header": {
+      "required": [
+        "name",
+        "fields"
+      ],
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "maxLength": 20,
+          "default": "HEADER"
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "required": [
+              "size"
+            ],
+            "type": "object",
+            "properties": {
+              "filler": {
+                "type": "boolean",
+                "default": false
+              },
+              "name": {
+                "type": "string",
+                "maxLength": 21
+              },
+              "description": {
+                "type": "string",
+                "maxLength": 34
+              },
+              "size": {
+                "type": "number",
+                "minimun": 1
+              },
+              "type": {
+                "type": "string",
+                "pattern": "/X|9/",
+                "default": "X"
+              }
+            }
+          }
+        }
+      }
+    },
+    "body": {
+      "type": "array",
+      "items": {
+        "required": [
+          "redefines",
+          "name",
+          "fields"
+        ],
+        "redefines": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 20
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "size"
+            ],
+            "properties": {
+              "filler": {
+                "type": "boolean",
+                "default": false
+              },
+              "name": {
+                "type": "string",
+                "maxLength": 21
+              },
+              "description": {
+                "type": "string",
+                "maxLength": 34
+              },
+              "size": {
+                "type": "number",
+                "minimun": 1
+              },
+              "type": {
+                "type": "string",
+                "pattern": "/X|9/",
+                "default": "X"
+              },
+              "decimal": {
+                "type": "number",
+                "minimun": 1
+              },
+              "inOut": {
+                "type": [
+                  "string",
+                  null
+                ],
+                "default": null,
+                "enum": [
+                  "I",
+                  "O",
+                  null
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "trailer": {
+      "type": "object",
+      "properties": {
+        "redefines": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 20
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "filler": {
+                "type": "boolean",
+                "default": false
+              },
+              "name": {
+                "type": "string",
+                "maxLength": 21
+              },
+              "description": {
+                "type": "string",
+                "maxLength": 34
+              },
+              "size": {
+                "type": "number",
+                "minimun": 1
+              },
+              "decimal": {
+                "type": "number",
+                "minimun": 1
+              },
+              "type": {
+                "type": "string",
+                "pattern": "/X|9/",
+                "default": "X"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "copybookgenerator",
+  "version": "1.0.0",
+  "description": "Copybook Generator for COBOL programs",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint index.js lib --ext .js",
+    "start": "export NODE_ENV=dev && node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edergr/copybookGenerator.git"
+  },
+  "keywords": [
+    "Copybook",
+    "COBOL",
+    "Copy",
+    "Generator"
+  ],
+  "author": "Éder Rodrigues",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edergr/copybookGenerator/issues"
+  },
+  "homepage": "https://github.com/edergr/copybookGenerator#readme",
+  "devDependencies": {
+    "depcheck": "^1.4.3",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.26.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "helmet": "^6.0.1",
+    "nconf": "^0.12.0",
+    "tv4": "^1.3.0",
+    "winston": "^3.8.2"
+  }
+}
