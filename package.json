@@ -4,11 +4,8 @@
   "description": "Copybook Generator for COBOL programs",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint index.js lib test --ext .js",
-    "mocha": "export NODE_ENV=test && mocha",
-    "pretest": "depcheck --ignores eslint-config-airbnb-base && npm run lint && npm audit --production",
-    "start": "export NODE_ENV=dev && node index.js",
-    "test": "nyc mocha"
+    "lint": "eslint index.js lib --ext .js",
+    "start": "export NODE_ENV=dev && node index.js"
   },
   "repository": {
     "type": "git",
@@ -27,14 +24,10 @@
   },
   "homepage": "https://github.com/edergr/copybookGenerator#readme",
   "devDependencies": {
-    "chai": "^4.3.7",
     "depcheck": "^1.4.3",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.26.0",
-    "mocha": "^10.2.0",
-    "nyc": "^15.1.0",
-    "sinon": "^15.0.3"
+    "eslint-plugin-import": "^2.26.0"
   },
   "dependencies": {
     "cors": "^2.8.5",
